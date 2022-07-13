@@ -1714,18 +1714,11 @@ if __name__ == '__main__':
 
             logger.info(
                 f"{bcolors.WARNING}Attack Started to{bcolors.OKBLUE} %s{bcolors.WARNING} with{bcolors.OKBLUE} %s{bcolors.WARNING} method for{bcolors.OKBLUE} %s{bcolors.WARNING} seconds, threads:{bcolors.OKBLUE} %d{bcolors.WARNING}!{bcolors.RESET}"
-                % (target or url.host, method, timer, threads))
+              % (target or url.host, method, timer, threads))
             event.set()
             ts = time()
             while time() < ts + timer:
-                logger.debug(
-                    f'{bcolors.WARNING}Target:{bcolors.OKBLUE} %s,{bcolors.WARNING} Port:{bcolors.OKBLUE} %s,{bcolors.WARNING} Method:{bcolors.OKBLUE} %s{bcolors.WARNING} PPS:{bcolors.OKBLUE} %s,{bcolors.WARNING} BPS:{bcolors.OKBLUE} %s / %d%%{bcolors.RESET}' %
-                    (target or url.host,
-                     port or (url.port or 80),
-                     method,
-                     Tools.humanformat(int(REQUESTS_SENT)),
-                     Tools.humanbytes(int(BYTES_SEND)),
-                     round((time() - ts) / timer * 100, 2)))
+                logger.info(f"{bcolors.WARNING} Bimzzx Attacked To IP: {bcolors.OKBLUE}%s {bcolors.WARNING}and PORT: {bcolors.OKBLUE}%s {bcolors.WARNING}Using METHODS: {bcolors.OKBLUE}%s"%(target or url.host, port or (url.port or 80), method))
                 REQUESTS_SENT.set(0)
                 BYTES_SEND.set(0)
                 sleep(1)
